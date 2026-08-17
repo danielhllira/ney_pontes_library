@@ -1,0 +1,10 @@
+services:
+  db:
+    image: postgres:18-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ney_pontes_library_development
+      POSTGRES_PASSWORD: pgpass
+    volumes:
+      - ./.data:/var/lib/postgresql
