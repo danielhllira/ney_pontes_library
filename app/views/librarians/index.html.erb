@@ -1,0 +1,20 @@
+<%= link_to "Adicionar bibliotecário", new_librarian_path %>
+
+<table>
+    <thead>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Ações</th>
+    </thead>
+
+    <tbody>
+        <% @librarians.each do |librarian| %>
+            <tr>
+                <td><%= librarian.name %></td>
+                <td><%= librarian.email %></td>
+            </tr>
+
+        <%end%>
+
+    </tbody>
+</table>

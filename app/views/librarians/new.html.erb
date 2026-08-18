@@ -1,0 +1,29 @@
+<h2>Novo bibliotecário</h2>
+
+<%= form_with model: @librarian do |f| %>
+  <div class="field">
+    <p><%= f.label :name, "Nome" %></p>
+    <p><%= f.text_field :name %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :email %></p>
+    <p><%= f.email_field :email, autocomplete: "email" %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :password, "Senha temporária" %></p>
+    <p><%= f.password_field :password, autocomplete: "new-password" %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :password_confirmation, "Confirmação da senha" %></p>
+    <p><%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Criar" %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar", librarians_path %>

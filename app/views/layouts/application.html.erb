@@ -24,6 +24,15 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to "Painel", root_path %>
+
+      <%= link_to "Bibliotecarios", librarians_path %>
+    </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <%= yield %>
   </body>
 </html>
