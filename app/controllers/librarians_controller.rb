@@ -11,6 +11,7 @@ class LibrariansController < ApplicationController
 
     def create
         @librarian = Librarian.new(librarian_params)
+        @librarian.must_change_password = true
 
         if @librarian.save
             redirect_to librarians_path, notice: "Bibliotecário criado com sucesso!"
