@@ -1,0 +1,15 @@
+<h2>Nova categoria</h2>
+
+<%= form_with model: @category do |f| %>
+  <div class="field">
+    <p><%= f.label :name, "Nome" %></p>
+    <p><%= f.text_field :name %></p>
+    <%= f.errors_for :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Criar" %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar", categories_path %>

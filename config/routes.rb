@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   resource :password_update, only: %i[edit update], controller: "password_updates"
 
+  resources :categories
+
+  resources :books
+
   root to: "home#index"
 
 end

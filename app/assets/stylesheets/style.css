@@ -1,0 +1,13 @@
+.js-css-field-errors-detail {
+  padding: 0;
+  position: relative;
+}
+
+.js-css-field-errors-detail span {
+  font-size: 11px;
+  font-weight: normal;
+  color: #be3225;
+  background: transparent;
+  display: inline-block;
+  margin: 0;
+}
