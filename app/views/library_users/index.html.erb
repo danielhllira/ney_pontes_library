@@ -1,0 +1,21 @@
+<h1>Usuários</h1>
+
+<%= link_to "Adicionar Usuário", new_library_user_path %>
+
+<table>
+    <thead>
+        <th>Nome completo</th>
+        <th>CPF</th>
+        <th>E-mail</th>
+    </thead>
+
+    <tbody>
+        <% @library_users.each do |library_user| %>
+            <tr>
+                <td><%= library_user.full_name %></td>
+                <td><%= library_user.cpf %></td>
+                <td><%= library_user.email %></td>
+            </tr>
+        <%end%>
+    </tbody>
+</table>

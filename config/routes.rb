@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   resources :books
 
+  resources :library_users
+
   root to: "home#index"
 
 end

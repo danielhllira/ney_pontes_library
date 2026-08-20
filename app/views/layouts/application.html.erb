@@ -33,6 +33,8 @@
 
       <%= link_to "Livros", books_path %>
 
+      <%= link_to "Usuários", library_users_path %>
+
       <% if librarian_signed_in? %>
         <%= link_to "Deslogar", destroy_librarian_session_path, data: { turbo_method: :delete } %>
       <% end %>
