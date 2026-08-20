@@ -23,6 +23,8 @@ Rails.application.routes.draw do
 
   resources :library_users
 
+  resources :histories
+
   root to: "home#index"
 
 end

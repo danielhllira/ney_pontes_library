@@ -1,0 +1,23 @@
+<h1>Empréstimos</h1>
+
+<%= link_to "Realizar empréstimo", new_history_path %>
+
+<table>
+    <thead>
+        <th>Usuário</th>
+        <th>Livro</th>
+        <th>Status</th>
+        <th>Data</th>
+    </thead>
+
+    <tbody>
+        <% @histories.each do |history| %>
+            <tr>
+                <td><%= history.library_user.full_name %></td>
+                <td><%= history.book.title %></td>
+                <td><%= status_decorate(history.status) %></td>
+                <td><%= history.created_at %></td>
+            </tr>
+        <%end%>
+    </tbody>
+</table>

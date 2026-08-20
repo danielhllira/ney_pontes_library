@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_20_174736) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_20_191435) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -33,6 +33,16 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_20_174736) do
     t.datetime "created_at", null: false
     t.string "name"
     t.datetime "updated_at", null: false
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.bigint "book_id", null: false
+    t.datetime "created_at", null: false
+    t.bigint "library_user_id", null: false
+    t.enum "status", enum_type: "status"
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_histories_on_book_id"
+    t.index ["library_user_id"], name: "index_histories_on_library_user_id"
   end
 
   create_table "librarians", force: :cascade do |t|
@@ -60,4 +70,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_20_174736) do
   end
 
   add_foreign_key "books", "categories"
+  add_foreign_key "histories", "books"
+  add_foreign_key "histories", "library_users"
 end

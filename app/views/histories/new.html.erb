@@ -1,0 +1,30 @@
+<h2>Novo histórico</h2>
+
+<%= form_with model: @history do |f| %>
+
+  <div class="field">
+    <p><%= f.label :status, "Status" %></p>
+    <p><%= f.select :status, list_statuses %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :library_user_id, "Usuário" %></p>
+    <p><%= f.select :library_user_id, list_library_users, {include_blank: ""} %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :book_id, "Livro" %></p>
+    <p><%= f.select :book_id, list_books, {include_blank: ""} %></p>
+  </div>
+
+  <div class="field">
+    <p><%= f.label :user_password, "Senha" %></p>
+    <p><%= f.password_field :user_password %></p>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Criar" %>
+  </div>
+<% end %>
+
+<%= link_to "Voltar", books_path %>
