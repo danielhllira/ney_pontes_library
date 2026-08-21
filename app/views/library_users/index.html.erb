@@ -22,7 +22,7 @@
           <td>
             <div class="d-flex gap-2">
               <%= render "shared/icon_button", kind: :view, url: edit_library_user_path(library_user), title: "Visualizar" %>
-              <%= render "shared/icon_button", kind: :destroy, url: library_user_path(library_user), title: "Excluir" %>
+              <%= render "shared/icon_button", kind: :destroy, url: library_user_path(library_user), title: "Excluir", show_destroy: !library_user.histories.exists? %>
             </div>
           </td>
         </tr>

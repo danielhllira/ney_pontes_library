@@ -46,6 +46,8 @@ gem "devise"
 
 gem "bcrypt", "~> 3.1.7"
 
+gem "rails-i18n","~>8.1"
+
 group :development, :test do
   # Loads environment variables from .env into ENV
   gem "dotenv-rails"

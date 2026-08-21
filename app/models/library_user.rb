@@ -1,6 +1,8 @@
 class LibraryUser < ApplicationRecord
     has_secure_password
 
+    has_many :histories
+
     before_validation :set_password, on: :create
 
     validates :full_name, :cpf, :phone, :email, presence: true

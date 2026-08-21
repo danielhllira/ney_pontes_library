@@ -17,6 +17,6 @@ class History < ApplicationRecord
     def check_user_password
         return if library_user.present? && library_user.authenticate(user_password)
 
-        errors.add(:base, "Senha do usuário inválida")
+        errors.add(:user_password, "Senha do usuário inválida")
     end
 end

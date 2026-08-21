@@ -20,7 +20,7 @@
           <td>
             <div class="d-flex gap-2">
               <%= render "shared/icon_button", kind: :view, url: edit_librarian_path(librarian), title: "Visualizar" %>
-              <%= render "shared/icon_button", kind: :destroy, url: librarian_path(librarian), title: "Excluir" %>
+              <%= render "shared/icon_button", kind: :destroy, url: librarian_path(librarian), title: "Excluir", show_destroy: true %>
             </div>
           </td>
         </tr>

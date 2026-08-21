@@ -37,6 +37,7 @@
           <div class="mb-3">
             <%= f.label :user_password, "Senha", class: "form-label" %>
             <%= f.password_field :user_password, class: "form-control" %>
+            <%= f.errors_for :user_password %>
           </div>
 
           <div class="mb-3">

@@ -28,7 +28,7 @@
                   kind: :loan,
                   url: new_history_path(book_id: book.id, status: book.status_available? ? "borrowed" : "available"),
                   title: book.status_available? ? "Emprestar" : "Devolver" %>
-              <%= render "shared/icon_button", kind: :destroy, url: book_path(book), title: "Excluir" %>
+              <%= render "shared/icon_button", kind: :destroy, url: book_path(book), title: "Excluir", show_destroy: !book.histories.exists? %>
             </div>
           </td>
         </tr>

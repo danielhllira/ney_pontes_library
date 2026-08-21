@@ -18,7 +18,7 @@
           <td>
             <div class="d-flex gap-2">
               <%= render "shared/icon_button", kind: :view, url: edit_category_path(category), title: "Visualizar" %>
-              <%= render "shared/icon_button", kind: :destroy, url: category_path(category), title: "Excluir" %>
+              <%= render "shared/icon_button", kind: :destroy, url: category_path(category), title: "Excluir", show_destroy: !category.books.exists? %>
             </div>
           </td>
         </tr>
