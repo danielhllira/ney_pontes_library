@@ -8,8 +8,8 @@ module ErrorsForHelper
 
     return if messages.empty?
 
-    content_tag(:div, class: "js-css-field-errors-detail") do
-      content_tag(:span) { messages.join(", ") }
+    content_tag(:div, class: "invalid-feedback d-block") do
+      messages.join(", ")
     end
   end
 

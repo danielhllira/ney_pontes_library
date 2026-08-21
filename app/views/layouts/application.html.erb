@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
   <head>
     <title><%= content_for(:title) || "Ney Pontes Library" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -24,27 +24,19 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to "Painel", root_path %>
+    <% if librarian_signed_in? %>
+      <%= render "shared/menu_bar" %>
+    <% end %>
 
-      <%= link_to "Bibliotecarios", librarians_path %>
-
-      <%= link_to "Categorias", categories_path %>
-
-      <%= link_to "Livros", books_path %>
-
-      <%= link_to "Usuários", library_users_path %>
-
-      <%= link_to "Empréstimos", histories_path %>
-
-      <% if librarian_signed_in? %>
-        <%= link_to "Deslogar", destroy_librarian_session_path, data: { turbo_method: :delete } %>
+    <main class="container my-4">
+      <% if notice.present? %>
+        <div class="alert alert-success" role="alert"><%= notice %></div>
       <% end %>
-    </nav>
+      <% if alert.present? %>
+        <div class="alert alert-danger" role="alert"><%= alert %></div>
+      <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%= yield %>
+      <%= yield %>
+    </main>
   </body>
 </html>

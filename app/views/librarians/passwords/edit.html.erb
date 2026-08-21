@@ -1,25 +1,33 @@
-<h2>Change your password</h2>
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card mt-4">
+      <div class="card-body">
+        <h2 class="card-title mb-4">Alterar sua senha</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "librarians/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "librarians/shared/error_messages", resource: resource %>
+          <%= f.hidden_field :reset_password_token %>
 
-  <div class="field">
-    <p><%= f.label :password, "New password" %></p>
-    <% if @minimum_password_length %>
-      <p><em>(<%= @minimum_password_length %> characters minimum)</em></p>
-    <% end %>
-    <p><%= f.password_field :password, autofocus: true, autocomplete: "new-password" %></p>
+          <div class="mb-3">
+            <%= f.label :password, "Nova senha", class: "form-label" %>
+            <% if @minimum_password_length %>
+              <div class="form-text">(mínimo de <%= @minimum_password_length %> caracteres)</div>
+            <% end %>
+            <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.label :password_confirmation, "Confirme a nova senha", class: "form-label" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= f.submit "Alterar minha senha", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+        <%= render "librarians/shared/links" %>
+      </div>
+    </div>
   </div>
-
-  <div class="field">
-    <p><%= f.label :password_confirmation, "Confirm new password" %></p>
-    <p><%= f.password_field :password_confirmation, autocomplete: "new-password" %></p>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "librarians/shared/links" %>
+</div>

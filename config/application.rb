@@ -23,5 +23,18 @@ module NeyPontesLibrary
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Do not generate test files when running generators (scaffold, model, controller, etc).
+    config.generators do |g|
+      g.test_framework nil
+      g.system_tests nil
+    end
+
+    # Default the app to Brazilian Portuguese; fall back to English for any
+    # key without a pt-BR translation (e.g. Devise's own messages).
+    config.i18n.default_locale = :"pt-BR"
+    config.i18n.fallbacks = true
+
+    config.time_zone = "Brasilia"
   end
 end

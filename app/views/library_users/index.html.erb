@@ -1,21 +1,32 @@
-<h1>Usuários</h1>
+<h1 class="mb-4">Usuários</h1>
 
-<%= link_to "Adicionar Usuário", new_library_user_path %>
+<%= link_to "Adicionar Usuário", new_library_user_path, class: "btn btn-primary mb-3" %>
 
-<table>
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle">
     <thead>
+      <tr>
         <th>Nome completo</th>
         <th>CPF</th>
         <th>E-mail</th>
+        <th>Ações</th>
+      </tr>
     </thead>
 
     <tbody>
-        <% @library_users.each do |library_user| %>
-            <tr>
-                <td><%= library_user.full_name %></td>
-                <td><%= library_user.cpf %></td>
-                <td><%= library_user.email %></td>
-            </tr>
-        <%end%>
+      <% @library_users.each do |library_user| %>
+        <tr>
+          <td><%= library_user.full_name %></td>
+          <td><%= library_user.cpf %></td>
+          <td><%= library_user.email %></td>
+          <td>
+            <div class="d-flex gap-2">
+              <%= render "shared/icon_button", kind: :view, url: edit_library_user_path(library_user), title: "Visualizar" %>
+              <%= render "shared/icon_button", kind: :destroy, url: library_user_path(library_user), title: "Excluir" %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
     </tbody>
-</table>
+  </table>
+</div>

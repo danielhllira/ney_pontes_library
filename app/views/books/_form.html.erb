@@ -1,0 +1,35 @@
+<%= form_with model: book do |f| %>
+  <div class="mb-3">
+    <%= f.label :author, "Autor", class: "form-label" %>
+    <%= f.text_field :author, class: "form-control#{" is-invalid" if book.errors[:author].any?}" %>
+    <%= f.errors_for :author %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :title, "Título", class: "form-label" %>
+    <%= f.text_field :title, class: "form-control#{" is-invalid" if book.errors[:title].any?}" %>
+    <%= f.errors_for :title %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :observation, "Observações", class: "form-label" %>
+    <%= f.text_area :observation, class: "form-control#{" is-invalid" if book.errors[:observation].any?}" %>
+    <%= f.errors_for :observation %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :status, "Status", class: "form-label" %>
+    <%= f.select :status, list_statuses, {}, class: "form-select#{" is-invalid" if book.errors[:status].any?}" %>
+    <%= f.errors_for :status %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.label :category_id, "Categoria", class: "form-label" %>
+    <%= f.select :category_id, list_categories, { include_blank: "" }, class: "form-select#{" is-invalid" if book.errors[:category_id].any?}" %>
+    <%= f.errors_for :category_id %>
+  </div>
+
+  <div class="mb-3">
+    <%= f.submit book.persisted? ? "Atualizar" : "Criar", class: "btn btn-primary" %>
+  </div>
+<% end %>
